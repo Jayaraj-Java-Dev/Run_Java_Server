@@ -31,9 +31,9 @@ public class FToken implements FTokenInterface {
 
         String key = DataSafety.decrypt(encKey, TokenTypes.ONLY_FOR_GET_API_KEY);
 
-        if (key.equals("java_run_api_key_string")) {
+        if (key.equals(DataSafety.TrustKeyString)) {
             ApiToken token = new ApiToken();
-            token.TrustKeyString = "java_run_api_key_string";
+            token.TrustKeyString = DataSafety.TrustKeyString;
             TokenDetails detail = new TokenDetails(token, 120, TokenTypes.API_TOKEN);
             return detail.encrypt();
         } else {
@@ -43,7 +43,7 @@ public class FToken implements FTokenInterface {
 
     @Override
     public String getTrustKey() {
-        return DataSafety.encrypt("java_run_api_key_string", TokenTypes.ONLY_FOR_GET_API_KEY);
+        return DataSafety.encrypt(DataSafety.TrustKeyString, TokenTypes.ONLY_FOR_GET_API_KEY);
     }
 
 }

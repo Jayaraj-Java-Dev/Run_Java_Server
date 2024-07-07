@@ -9,6 +9,8 @@ import java.util.Map;
 
 public class DataSafety {
 
+    public static final String TrustKeyString = "java_run_api_key_string";
+
     public enum TokenTypes {
         NONE, ONLY_FOR_GET_API_KEY,
         API_TOKEN, SESSION_TOKEN, USER_TOKEN,
