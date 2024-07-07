@@ -1,4 +1,4 @@
-package com.jay.run_java_server.Interfaces;
+package com.jay.run_java_server.Modules.FTokenHandler.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;

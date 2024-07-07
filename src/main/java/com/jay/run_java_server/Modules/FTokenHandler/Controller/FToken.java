@@ -1,4 +1,4 @@
-package com.jay.run_java_server.Controllers;
+package com.jay.run_java_server.Modules.FTokenHandler;
 
 import java.util.*;
 
@@ -10,7 +10,6 @@ import com.jay.run_java_server.Basics.AES.DataSafety;
 import com.jay.run_java_server.Basics.AES.DataSafety.TokenTypes;
 import com.jay.run_java_server.Basics.Token.KindOfTokens.ApiToken;
 import com.jay.run_java_server.Basics.Token.TokenDetails;
-import com.jay.run_java_server.Interfaces.FTokenInterface;
 
 @RestController
 @RequestMapping("/FToken")
