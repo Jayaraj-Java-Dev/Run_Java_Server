@@ -34,7 +34,7 @@ public class FToken implements FTokenInterface {
         if (key.equals(DataSafety.TrustKeyString)) {
             ApiToken token = new ApiToken();
             token.TrustKeyString = DataSafety.TrustKeyString;
-            TokenDetails detail = new TokenDetails(token, 120, TokenTypes.API_TOKEN);
+            TokenDetails detail = new TokenDetails(token, 1, TokenTypes.API_TOKEN);
             return detail.encrypt();
         } else {
             return null;

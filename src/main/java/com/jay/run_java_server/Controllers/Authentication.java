@@ -1,6 +1,8 @@
 package com.jay.run_java_server.Controllers;
 
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,11 +17,17 @@ import com.jay.run_java_server.Controllers.AuthenticationData.*;
 public class Authentication implements AuthenticationInterface {
 
     @Override
-    public Boolean createUser(HttpHeaders header, CreateUser input) {
+    public ResponseEntity<Boolean> createUser(HttpHeaders header, CreateUser input) {
         ApiToken detail = TokenController.getTokenDetailsFrom(header, TokenTypes.API_TOKEN, ApiToken.class);
-        String TrustKeyString = detail.TrustKeyString;
+        if (detail == null || !detail.isValid()) {
+            return new ResponseEntity<Boolean>(false, HttpStatus.UNAUTHORIZED);
+        }
 
-        return detail.isValid();
+
+        String TrustKeyString = detail.TrustKeyString;
+        System.out.println(TrustKeyString);
+
+        return new ResponseEntity<Boolean>(true, HttpStatus.OK);
     }
 
 }

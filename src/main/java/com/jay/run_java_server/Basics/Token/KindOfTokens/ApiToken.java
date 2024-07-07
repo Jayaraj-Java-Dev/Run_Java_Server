@@ -6,7 +6,7 @@ public class ApiToken {
     public String TrustKeyString;
 
     public Boolean isValid() {
-        if (TrustKeyString.equals(DataSafety.TrustKeyString)) {
+        if (DataSafety.TrustKeyString.equals(TrustKeyString)) {
             return true;
         }
         return false;

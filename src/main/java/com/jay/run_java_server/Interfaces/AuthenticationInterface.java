@@ -5,11 +5,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+
 import com.jay.run_java_server.Controllers.AuthenticationData.*;
 
 public interface AuthenticationInterface {
 
     @PostMapping("/CreateUser")
-    Boolean createUser(@RequestHeader HttpHeaders header, @RequestBody CreateUser input);
+    ResponseEntity<Boolean> createUser(@RequestHeader HttpHeaders header, @RequestBody CreateUser input);
 
 }
